@@ -1,0 +1,29 @@
+.OT_widget-container,.OT_widget-container video{
+	border-radius: 10px !important;
+}
+
+.groupUserButt{
+	position: absolute;
+	bottom: 0px;
+	margin-bottom: -30px !important;
+}
+
+.groupUserButt buttonn{
+	float: left;
+	color: #fff;
+	background: #ff0000 !important;
+	padding: 5px;
+}
+
+#WindowPublisher > div{
+	margin: 0px 50px 50px;
+	overflow: visible !important;
+}
+
+.groupUserButt .spiker{
+	color: #018001;
+}
+.groupUserButt .name{
+	color: #000;
+}
+
