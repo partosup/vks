@@ -74,7 +74,7 @@ foreach( $resultRow as $row) {
 				    'name' => $aboutConferenceText,     // default: null
 				    'hasAudio' => true,                     // default: true
 				    'hasVideo' => false,                     // default: true
-				    'outputMode' => OutputMode::INDIVIDUAL  // default: OutputMode::COMPOSED
+				    'outputMode' => OutputMode::COMPOSED  // default: OutputMode::COMPOSED
 				);
 			$archive = $opentok->startArchive($sessionTok, $archiveOptions);
 			$wpdb->query( "UPDATE ".$wpdb->prefix."tokbox SET archiveId='".$archive->id."'");
