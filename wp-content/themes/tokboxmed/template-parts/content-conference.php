@@ -15,7 +15,7 @@
 				</div>
 				<div id="circle-checkbox" class="col-md-2" >
 				    <span>Запись:</span>
-					<input onclick="start_archive();" class="circle-nicelabel" data-nicelabel='{"position_class": "circle-checkbox"}' type="checkbox" />
+					<input onclick="archive();" id="archive_state" class="circle-nicelabel" data-nicelabel='{"position_class": "circle-checkbox"}' type="checkbox" />
 				</div>
 			</div>
 		<? }?>	

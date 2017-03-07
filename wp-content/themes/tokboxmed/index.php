@@ -12,12 +12,7 @@
  * @package tokboxMed
  */
 
-get_header(); 
-echo('sd');
-?>
-
-
-
+get_header(); ?>
  <div class="row">
 	
 	<div id="primary" class="content-area col-md-12">

@@ -291,7 +291,7 @@ function tokboxmed_init(){
 	} 
   wp_reset_query();
    if($status_tokbox_get == 1){
-			require get_template_directory() . '/tokbox/tokboxConnect.php';			
+			require get_template_directory() . '/tokbox/tokboxConnect.php';		
 			$user_name_a  = $current_user->user_firstname;
 			$user_name_b  = $current_user->user_lastname;  
 		

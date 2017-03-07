@@ -54,19 +54,29 @@ $(function() {
 	
 	$('#createConf').click(function(){
 		$.ajax({
-			url: "/wp-content/themes/tokboxmed/tokbox/tokboxCreate.php",		
+			url: "/wp-content/themes/tokboxmed/tokbox/tokboxModerate.php",	
+			method: "POST",
+			data: {start : true},
 			success: function( data ) {
 				location.reload();
-			}
+			},
+	        error: function() {
+	          alert("There was an error. Try again please!");
+	        }
 		})
 	});
 
 	$('#destroyConf').click(function(){
 		$.ajax({
-			url: "/wp-content/themes/tokboxmed/tokbox/tokboxDelete.php",
+			url: "/wp-content/themes/tokboxmed/tokbox/tokboxModerate.php",
+			method: "POST",
+			data: {stop : true},
 			success: function( data ) {
 				location.reload();
-			}
+			},
+	        error: function() {
+	          alert("There was an error. Try again please!");
+	        }
 		})
 	});
 
@@ -106,7 +116,10 @@ $(function() {
 			data: {solve : true, id : IdUsert },
 			success: function( data ) {
 				$('.list-of-users li[data-id='+IdUsert+']').detach();		
-			}
+			},
+	        error: function() {
+	          alert("There was an error. Try again please!");
+	        }
 		});	
 	}
 	//reject connection of user
@@ -118,7 +131,10 @@ $(function() {
 			data: {reject : true, id : IdUsert },
 			success: function( data ) {
 				$('.list-of-users li[data-id='+IdUsert+']').detach();		
-			}
+			},
+	        error: function() {
+	          alert("There was an error. Try again please!");
+	        }
 		});
 	}
 
@@ -135,7 +151,10 @@ $(function() {
 			data: {reject : true, id : IdUsert },
 			success: function( data ) {
 				session.forceUnpublish(allSibscribersStreams[countUser][1]);		
-			}
+			},
+	        error: function() {
+	          alert("There was an error. Try again please!");
+	        }
 		});	
 	}
 
@@ -220,35 +239,32 @@ $(function() {
 
 		}
 
-
 	}
 	
 	
-	function start_archive(){
-		var date = new Date();
-		var url = "https://api.opentok.com/v2/project/"+apiKey+"/archive";
-		var method = "POST";
-		var postData = {
-				"sessionId" : sessionID,
-				 "name" : ""+date.getDate()+"/"+(date.getMonth()+1)+"/"+date.getFullYear()+"",
-				 "hasAudio" : true,
-				 "hasVideo" : true,
-				 "outputMode" : "composed",
-				 };
-		
-		var async = true;
-		var request = new XMLHttpRequest();
-		request.onload = function () {
-		   //get all kinds of information about the HTTP response.
-		   var status = request.status; // HTTP response status, e.g., 200 for "200 OK"
-		   var data = request.responseText; // Returned data, e.g., an HTML document.
+	function archive(){
+		if($('#archive_state').prop('checked')){
+			$.ajax({
+				url: "/wp-content/themes/tokboxmed/tokbox/tokboxModerate.php",
+				method: "POST",
+				data: {archive_on : true},
+				success: function() {
+		        },
+		        error: function() {
+		          alert("There was an error. Try again please!");
+		        } 
+			});
+		}else{
+			$.ajax({
+				url: "/wp-content/themes/tokboxmed/tokbox/tokboxModerate.php",
+				method: "POST",
+				data: {archive_off : true},
+				success: function() {
+		        },
+		        error: function() {
+		          alert("There was an error. Try again please!");
+		        } 
+			});
 		}
-
-		request.open(method, url, async);
-
-		request.setRequestHeader("Content-Type","application/json");
-		request.setRequestHeader("X-OPENTOK-AUTH", token);
-
-		request.send(postData);
 	}
 
