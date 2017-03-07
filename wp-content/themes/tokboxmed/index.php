@@ -12,7 +12,9 @@
  * @package tokboxMed
  */
 
-get_header(); ?>
+get_header(); 
+echo('sd');
+?>
 
 
 
