@@ -1,2 +1,2 @@
 # vks
-tokbox med
+tokbox api wp for 86med.ru
